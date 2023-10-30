@@ -33,7 +33,7 @@
                 <div class="choices" id="options1">
                     <input type="radio" name="q1" value="no"> A. Seoul<br>
                     <input type="radio" name="q1" value="no"> B. Kyoto<br>
-                    <input type="radio" name="q1" value="yes"> C. Tokyo<br>
+                    <input type="radio" name="q1" value="yes"> C. Tokyo <p class="check"></p><br>
                     <input type="radio" name="q1" value="no"> D. Osaka<br>
                 </div>
 
@@ -43,7 +43,7 @@
 
                 <div class="choices" id="options2">
                     <input type="radio" name="q2" value="no"> A. 128<br>
-                    <input type="radio" name="q2" value="yes"> B. 118<br>
+                    <input type="radio" name="q2" value="yes"> B. 118 <p class="check"></p><br>
                     <input type="radio" name="q2" value="no"> C. 98<br>
                     <input type="radio" name="q2" value="no"> D. 302<br>
                 </div>
@@ -54,7 +54,7 @@
 
                 <div class="choices" id="options3">
                     <input type="radio" name="q3" value="no"> A. Sun<br>
-                    <input type="radio" name="q3" value="yes"> B. Venus<br>
+                    <input type="radio" name="q3" value="yes"> B. Venus <p class="check"></p><br>
                     <input type="radio" name="q3" value="no"> C. Mercury<br>
                     <input type="radio" name="q3" value="no"> D. Saturn<br>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="choices" id="options4">
                     <input type="radio" name="q4" value="no"> A. 213<br>
                     <input type="radio" name="q4" value="no"> B. 162<br>
-                    <input type="radio" name="q4" value="yes"> C. 206<br>
+                    <input type="radio" name="q4" value="yes"> C. 206 <p class="check"></p><br>
                     <input type="radio" name="q4" value="no"> D. 205<br>
                 </div>
 
@@ -78,7 +78,7 @@
                     <input type="radio" name="q5" value="no"> A. Japan<br>
                     <input type="radio" name="q5" value="no"> B. Russia<br>
                     <input type="radio" name="q5" value="no"> C. German<br>
-                    <input type="radio" name="q5" value="yes"> D. Ukraine<br>
+                    <input type="radio" name="q5" value="yes"> D. Ukraine <p class="check"></p><br>
                 </div>
 
                 <div class="questions" id="question">
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="choices" id="options6">
-                    <input type="radio" name="q6" value="yes"> A. Mount Everest<br>
+                    <input type="radio" name="q6" value="yes"> A. Mount Everest <p class="check"></p><br>
                     <input type="radio" name="q6" value="no"> B. Aconcagua<br>
                     <input type="radio" name="q6" value="no"> C. Mount Vinson<br>
                     <input type="radio" name="q6" value="no"> D. K2<br>
@@ -98,7 +98,7 @@
 
                 <div class="choices" id="options7">
                     <input type="radio" name="q7" value="no"> A. 1939<br>
-                    <input type="radio" name="q7" value="yes"> B. 1945<br>
+                    <input type="radio" name="q7" value="yes"> B. 1945 <p class="check"></p><br>
                     <input type="radio" name="q7" value="no"> C. 1915<br>
                     <input type="radio" name="q7" value="no"> D. 1940<br>
                 </div>
@@ -114,7 +114,7 @@
                 <div id="card" class="card" style="width: 20rem;">
                     <img src="https://art.pixilart.com/c4ec72c5f32b864.gif" class="card-img-top" alt="mario">
                     <div class="card-body">
-                    <h5 class="card-title">Thank you for taking the test!</h5>
+                    <h5 id="eval" class="card-title"></h5>
                     <a class="btn btn-primary" id="buttons" onclick="show()">Review answers</a>
                     <a href="play.html" class="btn btn-primary" id="buttons">Retry</a>
                     <a href="index.html" class="btn btn-primary" id="buttons">Home</a>
@@ -138,6 +138,8 @@
                     }
                 });
 
+                let correct = 0;
+
                 if (unanswered) {
                     alert("You have missing answers.");
                 } else {
@@ -147,11 +149,16 @@
                         if (selectedInput) {
                             if (selectedInput.value === 'no') {
                                 choice.style.color = 'red';
+                                document.querySelectorAll(".check").forEach(function(element) {
+                                    element.innerHTML = '✔';
+                                });
                             } else if (selectedInput.value === 'yes') {
                                 choice.style.color = 'limegreen';
+                                correct++;
                             }
                         }
                         document.getElementById('card').style.display = 'block';
+                        document.getElementById('eval').innerHTML = 'You got ' + correct + ' correct!';
                     });
                 }
             });
