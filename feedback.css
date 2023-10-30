@@ -1,0 +1,32 @@
+.header {
+    text-align: center;
+    margin: 2.5rem;
+}
+
+.container {
+    background-color: #a6a6a6;
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    display: block;
+    height: 9rem;
+    font-size: 20px;
+  }
+
+.card {
+    display: none;
+    text-align: center;
+    border: 2px solid grey;
+    justify-content: center;
+    align-items: center;
+}
